@@ -5,7 +5,7 @@ echo ----- Installing Prometheus ------
 cd ~
 wget https://github.com/prometheus/prometheus/releases/download/v2.30.0/prometheus-2.30.0.linux-amd64.tar.gz
 tar -xvf prometheus-2.30.0.linux-amd64.tar.gz
-cd prometheus-2.30.0.linux-amd64.tar.gz
+cd prometheus-2.30.0.linux-amd64
 sudo cp -r . /usr/local/bin/prometheus
 cd ~
 sudo cp prometheus-grafana/prometheus.service /etc/systemd/system/prometheus.service
