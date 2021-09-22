@@ -1,5 +1,6 @@
 sudo yum update -y
 sudo yum install git -y
+git clone <repo>
 
 ## Installing Prometheus   ---- port 9090
 wget https://github.com/prometheus/prometheus/releases/download/v2.30.0/prometheus-2.30.0.linux-amd64.tar.gz
