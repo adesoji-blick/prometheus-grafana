@@ -27,7 +27,7 @@ sudo systemctl start node-exporter
 echo ----- include Node-exporter job on prometheus.yml file and creating prometheus_rule.yml file -----
 cd ~
 # sudo rm /usr/local/bin/prometheus/prometheus.yml
-sudo cp /home/ansible/prometheus-grafana/prometheus.yml /usr/local/bin/prometheus/prometheus.yml
+sudo cp /home/ansible/prometheus-grafana/prometheus.yml /usr/local/bin/prometheus/prometheus.yml 
 sudo cp prometheus-grafana/prometheus_rules.yml  /usr/local/bin/prometheus/prometheus_rules.yml
 sudo systemctl restart prometheus
 # ./promtool check rules prometheus_rules.yml
