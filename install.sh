@@ -9,6 +9,7 @@ cd prometheus-2.30.0.linux-amd64
 sudo cp -r . /usr/local/bin/prometheus
 cd ~
 sudo cp prometheus-grafana/prometheus.service /etc/systemd/system/prometheus.service
+sudo systemctl enable prometheus
 sudo systemctl start prometheus
 
 
@@ -18,6 +19,7 @@ wget https://github.com/prometheus/node_exporter/releases/download/v1.2.2/node_e
 tar xvf node_exporter-1.2.2.linux-amd64.tar.gz
 sudo cp node_exporter-1.2.2.linux-amd64/node_exporter /usr/local/bin
 sudo cp prometheus-grafana/node-exporter.service /etc/systemd/system/node-exporter.service
+sudo systemctl enable node_exporter
 sudo systemctl start node-exporter
 
 
@@ -42,14 +44,15 @@ sudo cp prometheus-grafana/alertmanager.service  /etc/systemd/system/alertmanage
 sudo rm /usr/local/bin/alertmanager/alertmanager.yml
 sudo cp prometheus-grafana/alertmanager.yml /usr/local/bin/alertmanager/alertmanager.yml
 # /usr/local/bin/alertmanager/amtool check-config /usr/local/bin/alertmanager/alertmanager.yml
+sudo systemctl enable alertmanager
 sudo systemctl start alertmanager
 
 ## Installing Grafana ---- port 3000
 echo ----- Installing grafana -------
 wget https://dl.grafana.com/enterprise/release/grafana-enterprise-8.1.5-1.x86_64.rpm
 sudo yum install grafana-enterprise-8.1.5-1.x86_64.rpm -y
-sudo systemctl start grafana-server
 sudo systemctl enable grafana-server
+sudo systemctl start grafana-server
 
 # http://localhost:9090
 # import 1860
